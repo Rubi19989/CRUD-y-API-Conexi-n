@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assest/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./index.css">
+    <title>CRUD</title>
+</head>
+
+<body>
+    <div>
+        <div class="container d-flex justify-content-between my-3">
+            <h1>Productos</h1>
+            <button name="crear" type="button" class="btn btn-outline-dark" data-bs-toggle="modal"
+                data-bs-target="#exampleModal" data-bs-whatever="@mdo">Nuevo Proyecto</button>
+        </div>
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                <div class="toast-body">
+                    Deseas eliminar el producto ?
+                    <div class="mt-2 pt-2 border-top">
+                        <button id="btnConfirm" type="button" class="btn btn-outline-dark">Si, eliminar</button>
+                        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="toast">No eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="container  my-3 border border-dark border border-4 " style="background-color: #fbb498;">
+        <table class="table border-bottom-0 ">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+              </nav>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th class="border-end  border-dark" scope="col">Nombre</th>
+                    <th class="border-end  border-dark" scope="col">Descripcion</th>
+                    <th class="border-end  border-dark" scope="col">Precio</th>
+                    <th class="border-end  border-dark" scope="col">Categoria</th>
+                    <th class="border-end  border-dark" scope="col">Imagenes</th>
+                    <th class="buttons" scope="col">Accions</th>
+                </tr>
+            </thead>
+            <tbody id="container">
+                <tr>
+                    <th>
+                        <div class="d-flex justify-items-center">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </nav>
+    </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: #b38184;">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <div id="spinerModal" class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                    <form class="d-none" id="MyForm">
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Nombre:</label>
+                            <input required type="text" class="form-control" id="name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Descripcion:</label>
+                            <textarea class="form-control" id="description"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Precio:</label>
+                            <input type="text" class="form-control" id="price">
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Categoria:</label>
+                            <!-- <input type="text" class="form-control" id="category"> -->
+                            <select id="selectCategori" class="form-select" aria-label="Default select example">
+                                <option selected>Seleccione una categoria</option>
+                              </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Imagenes:</label>
+                            <!-- <input type="file" class="form-control" id="images"> -->
+                            <input type="text" class="form-control" id="images">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer" style="background-color: #b38184;">
+                    <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancelar</button>
+                    <button id="btnModal" type="button" onclick="createOrUpdateProducts(event)"
+                        class="btn btn-outline-dark">Guardar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para actualizar -->
+        <script src="./assest/js/bootstrap.min.js"></script>
+        <script src="./index.js"></script>
+</body>
+
+</html>
